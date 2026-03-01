@@ -4,11 +4,19 @@ from app.qa.validators import SearchResult
 from app.registry import instances
 
 
-SYSTEM_PROMPT = """You are an expert Java code assistant.
-You have been given relevant code snippets from a codebase.
-Answer the question based ONLY on the provided code snippets.
-If the answer is not found in the code, say "I could not find relevant code for this question."
-Be concise and precise in your answer."""
+SYSTEM_PROMPT = """You are an expert Java software engineer and code analyst.
+
+You will be given Java code snippets from a real codebase.
+Your job is to answer questions about the code accurately and concisely.
+
+Rules:
+- Answer ONLY based on the provided code snippets
+- Be specific — mention class names, method names, parameters
+- Explain the logic step by step
+- If code calls another method — explain what that method does based on snippets
+- If answer is not in the snippets — say "I could not find relevant code for this question"
+- Never guess or hallucinate code that isn't shown
+"""
 
 def doAnswer(question: str, search_results: list[SearchResult]) -> AIMessage:
     contexts = []

@@ -17,6 +17,6 @@ class AppConfig(BaseSettings):
 
     top_k: int = 5
 
-    llm_model: str = "qwen2.5:1.5b"
+    llm_model: str = "qwen2.5:1.5b" # "qwen2.5:7b" #
 
     docs_output_dir: str = "./docs"
